@@ -1,47 +1,55 @@
-@extends('layouts.app')
-
+@extends('layouts.auth')
+@section('title') Inicio de sesión @endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+<div>
+    <!-- CONTAINER OPEN -->
+    <div class="col mx-auto text-center">
+        <a href="{{ route('login') }}">
+            <img src="{{ asset('assets/images/brand/logo.png') }}" class="header-brand-img" alt="">
+        </a>
+    </div>
+    <div class="col-12 container-login100">
+        <div class="row">
+            <div class="col col-login mx-auto">
+                <form class="card shadow-none" method="post">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <span class="login100-form-title">
+                                Forgot Password
+                            </span>
+                            <p class="text-muted">Enter the email address registered on your account</p>
                         </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="pt-3" id="forgot">
+                            <div class="form-group">
+                                <label class="form-label" for="eMail">E-Mail:</label>
+                                <input class="form-control" id="eMail" placeholder="Enter Your Email" type="email">
+                            </div>
+                            <div class="submit">
+                                <a class="btn btn-primary d-grid" href="javascript:;">Submit</a>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-dark mb-0">Forgot It?<a class="text-primary ms-1" href="javascript:;">Send me Back</a></p>
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center my-3">
+                            <a href="javascript:void(0)" class="social-login  text-center me-4">
+                                <i class="fa fa-google"></i>
+                            </a>
+                            <a href="javascript:void(0)" class="social-login  text-center me-4">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)" class="social-login  text-center">
+                                <i class="fa fa-twitter"></i>
+                            </a>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <!-- CONTAINER CLOSED -->
 </div>
 @endsection

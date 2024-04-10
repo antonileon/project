@@ -13,7 +13,7 @@
             <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
                 @csrf
                 <span class="login100-form-title">
-                    Login
+                    Inicio de sesión
                 </span>
                 <div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
                     <input placeholder="Email" id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -41,17 +41,17 @@
                 </div>
                 @if (Route::has('password.request'))
                 <div class="text-end pt-1">
-                    <p class="mb-0"><a href="{{ route('password.request') }}" class="text-primary ms-1">Forgot Password?</a></p>
+                    <p class="mb-0"><a href="{{ route('password.request') }}" class="text-primary ms-1">¿ Olvidó su contraseña ?</a></p>
                 </div>
                 @endif
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn btn-primary">
-                        Login
+                        Iniciar sesión
                     </button>
                 </div>
                 @if (Route::has('register'))
                 <div class="text-center pt-3">
-                    <p class="text-dark mb-0">Not a member?<a href="{{ route('register') }}" class="text-primary ms-1">Create an Account</a></p>
+                    <p class="text-dark mb-0">¿ No tienes cuenta?<a href="{{ route('register') }}" class="text-primary ms-1">Registrarse</a></p>
                 </div>
                 @endif
             </form>
